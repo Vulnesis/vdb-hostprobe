@@ -1,5 +1,7 @@
 # vdb-hostprobe
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Vulnetix/vdb-hostprobe)
+
 Last Updated: 2026-10-27
 
 What a machine has installed, read the same way by the Vulnetix CLI and Belai. It reports:
