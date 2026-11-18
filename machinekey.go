@@ -9,8 +9,7 @@ import (
 )
 
 // keyPrefix separates this hash from any other use of the machine id. The
-// CLI and Belai hash with the same prefix, so one machine has one key. It is
-// shared with the Vulnetix name: changing it would re-key every known machine.
+// CLI and Belai hash with the same prefix, so one machine has one key.
 const keyPrefix = "vulnetix-machine:"
 
 // MachineKey is a stable, anonymous key for this machine: the hex SHA-256 of
