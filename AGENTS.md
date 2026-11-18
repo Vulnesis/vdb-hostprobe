@@ -44,6 +44,6 @@ go vet ./... && gofmt -l . && go test -race ./...
 ## Consumers
 
 - Vulnesis CLI: `internal/scan/binaries.go` and `internal/agent/capabilities.go`,
-  and `vulnesis host -o json`.
+  and `vulnetix host -o json`.
 - Belai: `internal/hostprobe`, which adds sign-in state, GPUs from machineprobe
   and the three detection lanes (cache, verify, sweep).
