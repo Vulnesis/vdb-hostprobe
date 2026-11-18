@@ -1,10 +1,10 @@
 # vdb-hostprobe
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Vulnetix/vdb-hostprobe)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Vulnesis/vdb-hostprobe)
 
 Last Updated: 2026-10-27
 
-What a machine has installed, read the same way by the Vulnetix CLI and Belai. It reports:
+What a machine has installed, read the same way by the Vulnesis CLI and Belai. It reports:
 
 - the OS release
 - the architecture
@@ -15,7 +15,7 @@ What a machine has installed, read the same way by the Vulnetix CLI and Belai. I
 It uses the standard library only. Every system call goes through a `Seam`, so tests and callers decide what it may touch.
 
 ```go
-import hostprobe "github.com/Vulnetix/vdb-hostprobe"
+import hostprobe "github.com/Vulnesis/vdb-hostprobe"
 
 s := hostprobe.System()
 release := hostprobe.OSRelease(ctx, s)   // {ID: "ubuntu", VersionID: "24.04"}
@@ -41,7 +41,7 @@ f, err := hostprobe.Check(ctx, s, cached, 3*time.Second) // err is ErrGone when 
 | --- | --- |
 | `System()` | The `Seam` for this machine. Version commands run with a minimal environment (PATH, HOME and the Windows basics, `LC_ALL=C`), never the caller's tokens. |
 | `OSRelease(ctx, s)` | Reads `/etc/os-release` on Linux, `sw_vers` on macOS, `freebsd-version` on FreeBSD and the registry on Windows. `ParseOSRelease` parses the os-release text. |
-| `MachineKey(ctx, s)` | `sha256("vulnetix-machine:" + id)`, where the id is `/etc/machine-id`, `IOPlatformUUID`, `MachineGuid` or `/etc/hostid`. The raw id never leaves the process. `HashMachineID` hashes an id the caller already has. |
+| `MachineKey(ctx, s)` | `sha256("vulnesis-machine:" + id)`, where the id is `/etc/machine-id`, `IOPlatformUUID`, `MachineGuid` or `/etc/hostid`. The raw id never leaves the process. `HashMachineID` hashes an id the caller already has. |
 | `DetectPlatform(s)` | The CI system or container runtime, matching the CLI's `config.DetectPlatform`. |
 | `Catalogue()`, `For(goos)`, `Lookup(name)` | The probes. A probe has a fact name, a kind, the binaries to try in order, version arguments and a version pattern, or is marked presence only. |
 | `Run(ctx, s, probes, opts)` | Looks every program up on PATH, then runs version commands for the ones found, `Concurrency` at a time, each capped by `Timeout`. `OnResult` streams results as they finish. |
@@ -63,4 +63,4 @@ go vet ./... && gofmt -l . && go test -race ./...
 
 ## Licence
 
-Apache-2.0. The Vulnetix CLI (AGPL-3.0) and Belai (Apache-2.0) both import it.
+Apache-2.0. The Vulnesis CLI (AGPL-3.0) and Belai (Apache-2.0) both import it.

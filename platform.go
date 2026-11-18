@@ -16,7 +16,7 @@ const (
 
 // DetectPlatform says where this process runs. It reads environment variables
 // that CI systems and container runtimes set, and the marker files a runtime
-// leaves in the container root. The checks match the Vulnetix CLI's
+// leaves in the container root. The checks match the Vulnesis CLI's
 // config.DetectPlatform, plus /run/.containerenv for Podman.
 func DetectPlatform(s Seam) string {
 	env := func(k string) string {

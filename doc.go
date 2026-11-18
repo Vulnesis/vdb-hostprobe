@@ -4,7 +4,7 @@
 // managers, build and test tools, browsers, container runtimes, AI servers,
 // security tools and more.
 //
-// The Vulnetix CLI and Belai share it, so a machine reports the same facts to
+// The Vulnesis CLI and Belai share it, so a machine reports the same facts to
 // both. It is standard library only. Every system call goes through a Seam, so
 // callers and tests decide what the probe may touch.
 //

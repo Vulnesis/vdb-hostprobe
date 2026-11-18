@@ -2,7 +2,7 @@
 
 Last Updated: 2026-10-27
 
-Purpose: one implementation of host detection for the Vulnetix CLI and Belai.
+Purpose: one implementation of host detection for the Vulnesis CLI and Belai.
 See README.md for the API.
 
 ## Rules
@@ -18,7 +18,7 @@ See README.md for the API.
 - Fact names are part of the contract with vdb-site's capability catalogue
   (`api/internal/handler/testdata/host-capabilities.json`) and the website copy.
   Do not rename one; add a new probe and retire the old one in both places.
-- `MachineKey` hashes with the `vulnetix-machine:` prefix. Changing it splits
+- `MachineKey` hashes with the `vulnesis-machine:` prefix. Changing it splits
   every machine in two on the server.
 - No em dashes in prose or comments.
 
@@ -43,7 +43,7 @@ go vet ./... && gofmt -l . && go test -race ./...
 
 ## Consumers
 
-- Vulnetix CLI: `internal/scan/binaries.go` and `internal/agent/capabilities.go`,
-  and `vulnetix host -o json`.
+- Vulnesis CLI: `internal/scan/binaries.go` and `internal/agent/capabilities.go`,
+  and `vulnesis host -o json`.
 - Belai: `internal/hostprobe`, which adds sign-in state, GPUs from machineprobe
   and the three detection lanes (cache, verify, sweep).
